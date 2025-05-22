@@ -21,6 +21,9 @@ $ git config user.email {GitHubのemail}
 $ docker build -t ws-flask-app:local .
 ```
 
+http://0.0.0.0:8081
+
+
 ## ビルドしたイメージの確認
 
 ```bash
@@ -50,13 +53,13 @@ asia-northeast1-docker.pkg.dev/xxxxxxxxxxx/repo-xxxxxx-xxxxxxxx/ws-flask-app:lat
 記入欄
 
 ```plain
-xxxxx/ws-flask-app:latest
+asia-northeast1-docker.pkg.dev/env95-cloudruntraining/repo-mukai-akito/ws-flask-app:latest
 ```
 
 ### イメージのビルド
 
 ```bash
-$ docker build -t {イメージのパス} .
+$ docker build -t asia-northeast1-docker.pkg.dev/env95-cloudruntraining/repo-mukai-akito/ws-flask-app:latest .
 ```
 
 例
@@ -73,8 +76,8 @@ docker build -t xxxxx/ws-flask-app:latest
 
 作成したイメージをリポジトリに置く
 
-```bash
-$ docker push {イメージのパス}
+```bashdocker push asia-northeast1-docker.pkg.dev/env95-cloudruntraining/repo-mukai-akito/ws-flask-app:latest
+$ 
 ```
 
 例
@@ -110,9 +113,9 @@ $ gcloud run deploy cloud-run-xxxxx \
 記入欄
 
 ```bash
-$ gcloud run deploy cloud-run-xxxxx \
-    --image xxxxxxx \
-    --region asia-northeast1
+$ gcloud run deploy hands-on-mukai \
+    --image asia-northeast1-docker.pkg.dev/env95-cloudruntraining/repo-mukai-akito/ws-flask-app:latest \
+    --region asia-northeast1 \
     --port 8080
 ```
 
@@ -131,5 +134,5 @@ $ gcloud run services proxy cloud-run-xxxxxx --region asia-northeast1
 記入欄
 
 ```bash
-$ gcloud run services proxy xxxxxx --region asia-northeast1
+$ gcloud run services proxy hands-on-mukai --region asia-northeast1
 ```
